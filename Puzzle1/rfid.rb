@@ -12,7 +12,7 @@ class Rfid
       begin
         @r.picc_request(MFRC522::PICC_REQA)
         uid, sak = @r.picc_select
-        return self.convert_dec_hex(uid)
+        return uid.pack('C*').unpack1('H*')
       rescue CommunicationError => e
         # puts "Error communicating PICC: #{e.message}"
       else
@@ -20,15 +20,6 @@ class Rfid
       end
     end
   end
-
-  def convert_dec_hex(uid)
-    out=""
-    for number in uid do
-      out+=number.to_s(16).upcase()
-    end
-    return out
-  end
-
 end
 
 if __FILE__ == $0
