@@ -1,17 +1,18 @@
-'use strict';
+const http = require('http');
+const url = require('url');
+const querystring = require('querystring');
+const parser = require('./parser');
 
-const express = require('express');
+http.createServer(function (req, res) {
+	// Parse the url
+	map=parser.parseUrl(req.url);
+	console.log(map)
+	table=parser.getTableName(req.url);
+	
+	// Check if the db has the selected table
+	console.log("Checking table: "+table)
 
-// Constants
-const PORT = 8080;
-const HOST = '0.0.0.0';
-
-// App
-const app = express();
-app.get('/', (req, res) => {
-  res.send('Hello World');
-});
-
-app.listen(PORT, HOST, () => {
-  console.log(`Running on http://${HOST}:${PORT}`);
-});
+	// Write and send the response
+	res.writeHead(200, {'Content-Type': 'text/html'});
+	res.end();
+}).listen(8080); 
