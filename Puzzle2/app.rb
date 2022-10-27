@@ -28,6 +28,7 @@ class App <Gtk::Window
     add vbox
     @label = Gtk::Label.new 
     @label.text = "Please, login with your university card"
+    read
     vbox.pack_start(@label,:expand=>true,:fill=>true)
     @button = Gtk::Button.new "Clear"
     vbox.pack_start(@button,:fill=>true)
@@ -53,7 +54,7 @@ class App <Gtk::Window
       end
       # uid="uid: #{@r.read_uid}"
       sleep(@random.rand(3..5)) # Simulation for the user delay
-      uid="uid: #{@random.rand(1000000.9999999)}"
+      uid="uid: #{@random.rand(1000000..9999999)}"
       puts "#{uid} llegida"
       @label.text=uid
     }
