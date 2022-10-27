@@ -14,7 +14,7 @@ class App <Gtk::Window
     set_title "RFID GUI"
     signal_connect "destroy" do
       @thread.kill
-      @mainloop.main_quit
+      @mainloop.quit
     end
 
     init_ui
