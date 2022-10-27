@@ -30,7 +30,7 @@ class App <Gtk::Window
     @label.text = "Please, login with your university card"
     read
     vbox.pack_start(@label,:expand=>true,:fill=>true)
-    @button = Gtk::Button.new "Clear"
+    @button = Gtk::Button.new :label=>"Clear"
     vbox.pack_start(@button,:fill=>true)
     @button.signal_connect "clicked" do
       puts "Netejat"
