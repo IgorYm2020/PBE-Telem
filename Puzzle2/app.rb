@@ -1,4 +1,4 @@
-# require_relative 'rfid'
+require_relative 'rfid'
 require 'gtk3'
 require 'thread'
 require 'glib2'
@@ -6,8 +6,7 @@ require 'glib2'
 class App <Gtk::Window
 
   def initialize
-    @random=Random.new(1234)
-    # @r=Rfid.new
+    @r=Rfid.new
     @mainloop=GLib::MainLoop.new(nil,true)
     @id=nil
     super
@@ -47,9 +46,7 @@ class App <Gtk::Window
   end                                                                                                                                
                                                                                                                                      
   def read                                                                                                                           
-    # uid="uid: #{@r.read_uid}"                                                                                                      
-    sleep(@random.rand(3..5)) # Simulation for the user delay                                                                        
-    @uid="uid: #{@random.rand(1000000..9999999)}"                                                                                    
+    uid="uid: #{@r.read_uid}"                                                                                                                                                                                          
     GLib::Idle.add{update_uid}                                                                                                       
   end                                                                                                                                
                                                                                                                                      
