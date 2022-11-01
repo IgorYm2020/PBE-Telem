@@ -1,4 +1,4 @@
-#require_relative 'rfid'
+require_relative 'rfid'
 require 'gtk3'
 require 'thread'
 require 'glib2'
@@ -10,9 +10,7 @@ class App <Gtk::Window
   @@white=Gdk::RGBA::new(1.0,1.0,1.0,1.0)
 
   def initialize
-    #@r=Rfid.new
-    @random=Random.new(1234)
-    @mainloop=GLib::MainLoop.new(nil,true)
+    @r=Rfid.new
     @id=nil
     super
 
@@ -54,18 +52,13 @@ class App <Gtk::Window
 
   def update_uid
     @label.text=@uid
+    @label.override_background_color(:normal,@@red)
     return false
   end
 
   def read
-    sleep(@random.rand(3..5))
-    @uid="uid: #{@random.rand(10000..99999)}"
-    @label.override_background_color(:normal,@@red)
-    #uid="uid: #{@r.read_uid}"
+    uid="uid: #{@r.read_uid}"
     GLib::Idle.add{update_uid}
-  end
-
-  def start_reading
   end
 end
 
