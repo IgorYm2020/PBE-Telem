@@ -1,6 +1,6 @@
 // Importing the models
-const querystring = require('node:querystring');
-const url = require('node:url');
+const querystring = require('querystring');
+const url = require('url');
 
 exports.parseUrl = function(inputURL){
 	parsed=url.parse(inputURL); // Parses original url
