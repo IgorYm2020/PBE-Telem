@@ -1,4 +1,4 @@
-const url = "http://localhost:8080/"
+const url = "http://rpi:8080/"
 var xd;
 function auth() {
     const name = document.getElementById("name").value;

@@ -37,7 +37,7 @@ async function processRequest(url) {
         case "/index.html":
             code = 301;
             type = "text/html";
-            content = "http://localhost:8080/login";
+            content = "http://rpi:8080/login";
             break;
         case "/login":
             code = 200;
