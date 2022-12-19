@@ -31,7 +31,6 @@ async function getFromDB(table, query) {
 
 async function auth(query) {
 	const client = new MongoClient(uri);
-	console.log(query)
 	try {
 		const result = await client
 			.db(database)
@@ -39,7 +38,6 @@ async function auth(query) {
 			.find(query)
 			.project({ _id: 0 })
 			.toArray();
-		console.log("Result: " + result);
 		return result.length === 1;
 	} finally {
 		await client.close();

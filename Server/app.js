@@ -28,7 +28,6 @@ async function processRequest(url) {
             const table = parser.getTableName(url);
 
             // Check if the db has the selected table
-            console.log("Checking table: " + table);
             content = JSON.stringify({
                 "table": table,
                 "contents": await db.getFromDB(table, map)
@@ -42,7 +41,6 @@ async function processRequest(url) {
         case "/login":
             code = 200;
             type = 5
-            console.log("Declarada" + type)
             type = "text/html";
             content = webRender.basicPage
             break;
@@ -53,7 +51,6 @@ async function processRequest(url) {
             break;
         case "/auth":
             const query = parser.parseUrl(url);
-            console.log(query)
             if (!(query.size == 2 && query.has("name") && query.has("password"))) {
                 code = 403;
                 type = "text/html";
@@ -61,7 +58,6 @@ async function processRequest(url) {
                 break;
             }
             const found = await db.auth(query);
-            console.log("Status: " + found)
             code = found ? 200 : 403;
             type = "text/html";
             content = found ? webRender.tablePage : "Forbidden";
@@ -77,7 +73,6 @@ async function processRequest(url) {
 
 http.createServer(async function (req, res) {
     const { code, type, content } = await processRequest(req.url);
-    console.log(content)
     if (code == 301) {
         res.writeHead(code, type, { location: content });
         res.end();
