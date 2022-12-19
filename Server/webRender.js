@@ -17,8 +17,4 @@ exports.start=()=>{
         if (err) throw err;
         exports.tablePage=data;
     });
-    fs.readFile('src/login.js', 'utf-8', (err, data) => {
-        if (err) throw err;
-        exports.loginScript=data;
-    });
 }
