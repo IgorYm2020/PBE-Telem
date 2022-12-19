@@ -2,7 +2,6 @@ const parser = require('./parser');
 const db = require('./mongo');
 const http = require('http');
 const webRender = require('./webRender');
-const { table } = require('console');
 
 webRender.start();
 
