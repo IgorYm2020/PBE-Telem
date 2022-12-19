@@ -13,6 +13,10 @@ exports.start=()=>{
         if (err) throw err;
         exports.basicScript=data;
     });
+    fs.readFile('src/index.css', 'utf-8', (err, data) => {
+        if (err) throw err;
+        exports.basicSheet=data;
+    });
     fs.readFile('src/table.html', 'utf-8', (err, data) => {
         if (err) throw err;
         exports.tablePage=data;

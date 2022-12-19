@@ -48,6 +48,11 @@ async function processRequest(url) {
             type = "text/javascript";
             content = webRender.basicScript;
             break;
+        case "/index.css":
+            code = 200;
+            type = "text/javascript";
+            content = webRender.basicSheet;
+            break;
         case "/auth":
             const query = parser.parseUrl(url);
             if (!(query.size == 2 && query.has("name") && query.has("password"))) {
@@ -80,4 +85,4 @@ http.createServer(async function (req, res) {
     res.writeHead(code, type);
     res.write(content, "utf-8");
     res.end();
-}).listen(8080); 
+}).listen(8080);
