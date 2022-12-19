@@ -1,13 +1,36 @@
 {
-  "name": "docker_web_app",
+  "name": "prova-server",
   "version": "1.0.0",
-  "description": "Node.js on Docker",
-  "author": "Dani Díaz <danieldiaz4401@gmail.com>",
-  "main": "server.js",
-  "scripts": {
-    "start": "node app.js"
-  },
+  "description": "",
+  "main": "index.js",
   "dependencies": {
-    "express": "^4.16.1"
-  }
+    "base64-js": "^1.5.1",
+    "bowser": "^2.11.0",
+    "bson": "^4.7.0",
+    "buffer": "^5.7.1",
+    "fast-xml-parser": "^4.0.11",
+    "ieee754": "^1.2.1",
+    "ip": "^2.0.0",
+    "memory-pager": "^1.5.0",
+    "mongodb": "^4.12.1",
+    "mongodb-connection-string-url": "^2.6.0",
+    "punycode": "^2.1.1",
+    "querystring": "^0.2.1",
+    "saslprep": "^1.0.3",
+    "smart-buffer": "^4.2.0",
+    "socks": "^2.7.1",
+    "sparse-bitfield": "^3.0.3",
+    "strnum": "^1.0.5",
+    "tr46": "^3.0.0",
+    "tslib": "^2.4.1",
+    "url": "^0.11.0",
+    "uuid": "^8.3.2",
+    "webidl-conversions": "^7.0.0",
+    "whatwg-url": "^11.0.0"
+  },
+  "scripts": {
+    "test": "node app.js"
+  },
+  "author": "",
+  "license": "ISC"
 }
