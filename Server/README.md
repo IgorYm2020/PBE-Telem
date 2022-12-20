@@ -5,7 +5,7 @@ Nodejs and Node Package Manager.
 ## Usage
 The urls point to a host named rpi. You have got 2 options:
 * Alias your host to "rpi" in your /etc/hosts
-* Find and replace "rpi" for your host's name in index.js and app.js 
+* Find and replace "rpi" for your host's name in /src/index.js and /app.js 
 
 In this folder, just run:
 ```
