@@ -17,6 +17,7 @@ async function processRequest(url) {
             type = "text/html"
             content = "Forbidden"
             break;
+        case "/students":
         case "/timetables":
         case "/tasks":
         case "/marks":
