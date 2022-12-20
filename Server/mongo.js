@@ -8,7 +8,7 @@ function getParams(query) {
 }
 
 function formatNumber(number) {
-	return number<10?"0"+number:""+number;
+	return number < 10 ? "0" + number : "" + number;
 }
 
 async function getFromDB(table, query) {
@@ -20,12 +20,12 @@ async function getFromDB(table, query) {
 			query.delete("limit");
 		}
 
-		if(query.get("date")==="now"){
-			const today=new Date()
-			const year=formatNumber(today.getFullYear());
-			const month=formatNumber(today.getMonth());
-			const day=formatNumber(today.getDay());
-			query.set("date",year+"-"+month+"-"+day);
+		if (query.get("date") === "now") {
+			const today = new Date()
+			const year = formatNumber(today.getFullYear());
+			const month = formatNumber(today.getMonth());
+			const day = formatNumber(today.getDay());
+			query.set("date", year + "-" + month + "-" + day);
 		}
 
 		const result = [];

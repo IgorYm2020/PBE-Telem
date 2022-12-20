@@ -37,7 +37,7 @@ async function doRequest(url) {
     console.debug(url)
     const data = fetch(url, { method: 'GET' })
         .then(response => { console.log(response); if (response.ok) { return response.text() } else { document.getElementById("Error").innerHTML = "Authentication failed"; return null } })
-        .then(data => { console.log(data);return JSON.parse(data) })
+        .then(data => { console.log(data); return JSON.parse(data) })
         .catch(errorMsg => { console.log("FAIL"); console.log(errorMsg); });
     console.log(data);
     return data;
@@ -45,6 +45,6 @@ async function doRequest(url) {
 
 async function getData() {
     const query = document.getElementById("queryInput").value;
-    const { table, contents } = await doRequest(url+query);
+    const { table, contents } = await doRequest(url + query);
     document.getElementById("table").innerHTML = printTable(table, contents);
 }
